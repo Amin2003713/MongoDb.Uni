@@ -71,3 +71,35 @@ db.products.insertMany([
 
 با درک ویژگی‌ها و موارد استفاده متمایز از درج‌های مرتب و بدون ترتیب، می‌توانید تصمیمات مطلعانه‌ای برای بهینه‌سازی
 سازگاری داده، رسیدگی به خطا و عملکرد در برنامه‌های MongoDB خود اتخاذ کنید.
+
+```javascript
+db.persons.insertOne({
+name : "Amin" , age : 21 , hobbies : ["Codeing" , "Programing"]
+})
+
+db.persons.insertOne({
+name : "Ali" , age : 29 , hobbies : ["Codeing" , "Programing"]
+} , { writeConcern: { w: 0 } })
+
+db.persons.insertMany([
+{name : "Reza" , age : 25 , hobbies : ["Codeing" , "Programing" , "Fucking"]},
+{name : "Reyhane" , age : 21 , hobbies : ["Codeing" , "Programing" , "coocking"]},
+])
+
+db.persons.insert([
+{name : "Reza" , age : 25 , hobbies : ["Codeing" , "Programing" , "Fucking"]},
+{name : "Reyhane" , age : 21 , hobbies : ["Codeing" , "Programing" , "coocking"]},
+{name : "Amin" , age : 21 , hobbies : ["Codeing" , "Programing"]}
+])
+
+db.persons.find();
+
+db.hobbies.insertMany([
+{_id: "cars" , name: "cars" } ,
+{ _id : "Testing" ,name : "Testing"},
+{ _id : "coocking" , name : "coocking"}
+] , {ordered : false})
+
+db.hobbies.find()
+
+```
